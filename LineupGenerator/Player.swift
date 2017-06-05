@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Player {
+class Player : Equatable {
     var name: String!
     var number: Int!
     var positions: [Int]!
@@ -53,4 +53,9 @@ class Player {
         return infield
     }
 
+    static func == (p1: Player, p2: Player) -> Bool {
+        return p1.name == p2.name && p1.number == p2.number && p1.lineupNumber == p2.lineupNumber
+    }
+
+    
 }

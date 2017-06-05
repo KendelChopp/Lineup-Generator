@@ -10,7 +10,8 @@ import Foundation
 
 class Team {
     var players: [Player]!
-
+    var lineup = [[Int]]()
+    
     init(playerList: [Player]) {
         self.players = playerList
         var curr = 0
@@ -18,6 +19,7 @@ class Team {
             player.lineupNumber = curr
             curr += 1
         }
+     
     }
     
     func getPlayer(lineupNumber: Int) -> Player {

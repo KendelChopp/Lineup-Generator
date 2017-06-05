@@ -31,12 +31,10 @@ class Game {
         var lineup = Array(repeating: Array(repeating: 0, count: self.innings), count: self.team.players.count)
         
         var currentInning = 1
-        //First assign pitchers for every inning
+        //First assign pitchers/catchers for every inning
         var availablePitchers = self.team.getPos(position: 1)
         var availableCatchers = self.team.getPos(position: 2)
         let numberOfPitchers = Int((self.innings + 1) / self.pitchingInnings)
-        
-
         
         for _ in 0...numberOfPitchers - 1 {
             let pitcher = availablePitchers.randomItemRemove()
@@ -47,8 +45,13 @@ class Game {
             }
             for _ in 1...self.pitchingInnings {
                 if currentInning <= self.innings {
+                    //Set pitcher
                     lineup[pitcher.lineupNumber][currentInning-1] = 1
                     pitcher.lineupPositions[currentInning - 1] = 1
+                    
+                    //Set catcher
+                    lineup[catcher.lineupNumber][currentInning-1] = 2
+                    catcher.lineupPositions[currentInning-1] = 2
                 }
                 currentInning += 1
             }

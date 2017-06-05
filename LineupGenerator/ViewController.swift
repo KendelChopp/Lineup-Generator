@@ -16,10 +16,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.team = readFile()
-        for p in team.getPitchers() {
-            print(p.name)
-        }
-        
+            
     }
     
     @IBOutlet var opponentTextField: NSTextField!
@@ -56,10 +53,18 @@ class ViewController: NSViewController {
         let game = Game(team: self.team, innings: innings!, opponent: opponent)
         let lineup = game.generateLineup()
         print(lineup)
+        self.team.lineup = lineup
+        self.performSegue(withIdentifier: "generateToTable", sender: self)
         
     }
     
-    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "generateToTable") {
+            
+            let tableController = segue.destinationController as! LineupViewController
+            tableController.team = self.team
+        }
+    }
     
     
     override var representedObject: Any? {
