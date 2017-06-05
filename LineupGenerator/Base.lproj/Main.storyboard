@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -653,7 +655,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="LineupGenerator" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -679,15 +681,105 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="LineupGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r0N-xq-Kqb">
+                                <rect key="frame" x="216" y="203" width="49" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="vJQ-nq-SKl"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Uz8-jj-9y2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cgm-9X-M0n">
+                                <rect key="frame" x="180" y="233" width="120" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Number of Innings:" id="vzC-y1-X6j">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KQ6-ro-0LJ">
+                                <rect key="frame" x="216" y="148" width="49" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="joW-TB-RYy"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="NaX-q7-V5T">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Ea-78-SVA">
+                                <rect key="frame" x="191" y="178" width="98" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pitcher Innings:" id="s5f-nP-9QA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gui-Uj-fD1">
+                                <rect key="frame" x="175" y="93" width="131" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="c0q-B5-Arn"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="zyK-f6-MMy">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="THy-u7-pH2">
+                                <rect key="frame" x="206" y="123" width="69" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Opponent:" id="s1B-aG-QVR">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8g0-Lb-GRd">
+                                <rect key="frame" x="192" y="57" width="96" height="32"/>
+                                <buttonCell key="cell" type="push" title="Generate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1gx-Zv-fOz">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="generatePress:" target="XfG-lQ-9wD" id="RJ8-vW-LkL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="KQ6-ro-0LJ" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="5Uj-rH-Umn"/>
+                            <constraint firstItem="r0N-xq-Kqb" firstAttribute="top" secondItem="Cgm-9X-M0n" secondAttribute="bottom" constant="8" id="ADR-fT-5Xt"/>
+                            <constraint firstItem="THy-u7-pH2" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="HFs-V9-BxZ"/>
+                            <constraint firstItem="8g0-Lb-GRd" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="InM-4w-w1A"/>
+                            <constraint firstItem="gui-Uj-fD1" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="PCF-Vw-bzb"/>
+                            <constraint firstItem="8g0-Lb-GRd" firstAttribute="top" secondItem="gui-Uj-fD1" secondAttribute="bottom" constant="8" id="U4g-cc-d6M"/>
+                            <constraint firstItem="7Ea-78-SVA" firstAttribute="top" secondItem="r0N-xq-Kqb" secondAttribute="bottom" constant="8" id="Zxh-X7-5le"/>
+                            <constraint firstItem="Cgm-9X-M0n" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="aEz-fC-0CM"/>
+                            <constraint firstItem="r0N-xq-Kqb" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="cAA-Oe-cOm"/>
+                            <constraint firstItem="THy-u7-pH2" firstAttribute="top" secondItem="KQ6-ro-0LJ" secondAttribute="bottom" constant="8" id="hcm-Sf-VvZ"/>
+                            <constraint firstItem="gui-Uj-fD1" firstAttribute="top" secondItem="THy-u7-pH2" secondAttribute="bottom" constant="8" id="k86-m8-58J"/>
+                            <constraint firstItem="KQ6-ro-0LJ" firstAttribute="top" secondItem="7Ea-78-SVA" secondAttribute="bottom" constant="8" id="qPJ-3O-gTZ"/>
+                            <constraint firstItem="Cgm-9X-M0n" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="wSP-jF-D67"/>
+                            <constraint firstItem="7Ea-78-SVA" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="yWy-BD-lHb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="inningTextField" destination="r0N-xq-Kqb" id="mxh-h8-bqo"/>
+                        <outlet property="opponentTextField" destination="gui-Uj-fD1" id="n6G-7E-Pgb"/>
+                        <outlet property="pitcherInningTextField" destination="KQ6-ro-0LJ" id="y7V-1B-Hgf"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="-41" y="672"/>
         </scene>
     </scenes>
 </document>
