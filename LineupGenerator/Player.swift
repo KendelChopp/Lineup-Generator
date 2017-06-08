@@ -23,6 +23,30 @@ class Player : Equatable {
         
     }
     
+    func getPosition(inning: Int) -> Int {
+        return self.lineupPositions[inning - 1]
+    }
+    
+    func getPreviousSitting(inning: Int) -> Int{
+        var sitting = 0
+        for index in 0...inning - 1 {
+            if (self.lineupPositions[index] == 0) {
+                sitting += 1
+            }
+        }
+        return sitting
+    }
+    
+    func getPreviousInfield(inning: Int) -> Int{
+        var infield = 0
+        for index in 0...inning - 1 {
+            if (self.lineupPositions[index] >= 1 && self.lineupPositions[index] <= 6) {
+                infield += 1
+            }
+        }
+        return infield
+    }
+    
     func getSittingInnings() -> Int {
         var sitting = 0
         for position in self.lineupPositions {

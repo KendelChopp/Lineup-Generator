@@ -16,6 +16,9 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.team = readFile()
+        self.opponentTextField.stringValue = "Example Opponent"
+        self.inningTextField.stringValue = "7"
+        self.pitcherInningTextField.stringValue = "2"
             
     }
     
@@ -52,7 +55,7 @@ class ViewController: NSViewController {
         let opponent = opponentTextField.stringValue
         let game = Game(team: self.team, innings: innings!, opponent: opponent)
         let lineup = game.generateLineup()
-        print(lineup)
+        
         self.team.lineup = lineup
         self.performSegue(withIdentifier: "generateToTable", sender: self)
         
